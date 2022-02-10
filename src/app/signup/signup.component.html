@@ -1,0 +1,54 @@
+<h1>Signup Form</h1><hr/>
+<form #userForm="ngForm" (ngSubmit)="userData(userForm)" class="form-group" [ngStyle]="{'width': '500px', 'margin':'0 auto'}">
+    <label for="socialid">social_id</label><br/>
+    <input type="text" name="socialid" class="form-control" ngModel ><br/><br/>    
+
+    <label for="name">name</label><br/>
+    <input type="text" name="name" class="form-control" ngModel ><br/><br/>
+
+    <label for="email">email</label><br/>
+    <input type="email" name="email" class="form-control" ngModel ><br/><br/>
+
+    <label for="phone">phone</label><br/>
+    <input type="email" name="phone" class="form-control" ngModel ><br/><br/>
+
+    <label for="password">password</label><br/>
+    <input type="password" name="password" class="form-control" ngModel><br/><br/>
+
+    <label for="surname">surname</label><br/>
+    <input type="text" name="surname" class="form-control"ngModel ><br/><br/>
+
+    <label for="address">address</label><br/>
+    <input type="text" name="address" class="form-control" ngModel ><br/><br/>
+    
+    <label for="education">education</label><br/>
+    <input type="text" name="education" class="form-control" ngModel><br/><br/>
+
+    <label for="country">country</label><br/>
+    <input type="text" name="country" class="form-control" ngModel ><br/><br/>
+
+    <label for="state">state</label><br/>
+    <input type="text" name="state" class="form-control" ngModel><br/><br/>
+
+    <label for="experience">experience</label><br/>
+    <input type="text" name="experience" class="form-control" ngModel><br/><br/>
+
+    <label for="details">details</label><br/>
+    <input type="text" name="details" class="form-control" ngModel ><br/><br/>
+
+    <label for="profilepic">profile_pic</label><br/>
+    <input type="text" name="profilepic"ngModel><br/><br/>
+
+    <label for="socialprovider">social_provider</label><br/>
+    <input type="text" name="socialprovider" class="form-control" ngModel><br/><br/>
+
+    <label for="isactive" >is_Active</label><br/>
+    <input type="radio" name="isactive" ngModel value="true"> true  <br/>
+    <input type="radio" name="isactive" ngModel  value="false"> false  
+    <br/><br/>
+
+    <button type="submit" class="btn btn-primary" >Submit</button><br/><br/>    
+
+  </form>
+
+  <p>If already a user then Please <a [routerLink]="['/login']" >Login</a></p>  

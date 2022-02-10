@@ -1,0 +1,14 @@
+<h1>Login Form</h1><hr/>
+
+<form #userLogin='ngForm' (ngSubmit) = "checkLogin(userLogin)">
+    <label for="email" >Email</label><br/>
+    <input type="email" name="email" [(ngModel)]="email"><br/><br/>
+
+    <label for="password">Password</label><br/>
+    <input type="password" name="password" [(ngModel)]="password"><br/><br/>
+
+    <button type="submit" >Submit</button>
+</form>
+
+<p *ngIf="checkCredentials" [ngStyle]="{'color':'red'}">* Sorry the credentials does not match! Please try again</p>
+<p>New User Please <a [routerLink]="['/signup']" >Signup</a></p>

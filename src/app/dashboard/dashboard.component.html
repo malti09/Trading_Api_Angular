@@ -1,0 +1,114 @@
+
+<div class="header">
+  <h1>Dashboard</h1><hr/>
+  <button *ngIf="hideDashboardForm" class="btn btn-primary" (click)="showDashboardForm()">Add New User</button>
+  <button class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+
+<form #userForm="ngForm" (ngSubmit)="userData(userForm)" *ngIf="!hideDashboardForm"  class="form-group" [ngStyle]="{'width': '500px', 'margin':'0 auto'}">
+
+  <ng-container *ngIf="!hideElement"><label for="_id">Id</label><br/>
+    <input type="text" name="_id" class="form-control" [(ngModel)]="userEditDatadashboard._id" ><br/><br/></ng-container>   
+
+     <label for="name">name</label><br/>
+    <input type="text" name="name" class="form-control" [(ngModel)]="userEditDatadashboard.name" ><br/><br/>
+
+    <label for="email">email</label><br/>
+    <input type="email" name="email" class="form-control" [(ngModel)]="userEditDatadashboard.email" ><br/><br/>
+    
+    <label for="phone">phone</label><br/>
+    <input type="email" name="phone" class="form-control" [(ngModel)]="userEditDatadashboard.phone" ><br/><br/>
+
+    <ng-container *ngIf="showPassword"><label for="password">password</label><br/>
+    <input type="password" name="password" class="form-control" [(ngModel)]="userEditDatadashboard.password"><br/><br/></ng-container>
+
+    <label for="surname">surname</label><br/>
+    <input type="text" name="surname" class="form-control" [(ngModel)]="userEditDatadashboard.surname" ><br/><br/>
+
+    <label for="address">address</label><br/>
+    <input type="text" name="address" class="form-control" [(ngModel)]="userEditDatadashboard.address" ><br/><br/>
+    
+    <label for="education">education</label><br/>
+    <input type="text" name="education" class="form-control" [(ngModel)]="userEditDatadashboard.education"><br/><br/>
+
+    <label for="country">country</label><br/>
+    <input type="text" name="country" class="form-control" [(ngModel)]="userEditDatadashboard.country" ><br/><br/>
+
+    <label for="state">state</label><br/>
+    <input type="text" name="state" class="form-control" [(ngModel)]="userEditDatadashboard.state"><br/><br/>
+
+    <label for="experience">experience</label><br/>
+    <input type="text" name="experience" class="form-control" [(ngModel)]="userEditDatadashboard.experience"><br/><br/>
+
+    <label for="details">details</label><br/>
+    <input type="text" name="details" class="form-control" [(ngModel)]="userEditDatadashboard.details" ><br/><br/>
+    
+    <ng-container *ngIf="!hideElement"><label for="is_Active" >is_Active</label><br/>
+    <input type="radio" name="is_Active" [(ngModel)]="userEditDatadashboard.is_Active" value="true"> true  <br/>
+    <input type="radio" name="is_Active" [(ngModel)]="userEditDatadashboard.is_Active"  value="false"> false  
+    <br/><br/></ng-container>
+    
+    <ng-container *ngIf="!hideElement"><label for="executiveId">executiveId</label><br/>
+    <input type="text" name="executiveId" class="form-control" ngModel ><br/><br/></ng-container>
+
+    <button type="submit" class="btn btn-primary" (click)="getUser()" *ngIf="submit">Add User</button>   
+    <button type = "submit" class="btn btn-success" (click)="getUser()" *ngIf="!submit"  >Update</button>
+    <button type="submit" class="btn btn-danger" (click)="cancelAddUser()">Cancel</button><br/><br/>    
+
+  </form>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>S no.</th>
+        <th>Name</th>
+        <th>Email Id</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Education</th>
+        <th>Country</th>
+        <th>Experience</th>
+        <th>Details</th>
+        <th>Is Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let userDt of userDashboardData; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{userDt.name}}</td>
+        <td>{{userDt.email}}</td>
+        <td>{{userDt.phone}}</td>
+        <td>{{userDt.address}}</td>
+        <td>{{userDt.education}}</td>
+        <td>{{userDt.country}}</td>
+        <td>{{userDt.experience}}</td>
+        <td>{{userDt.details}}</td>
+        <td>{{userDt.is_Active}}</td>
+        <td><button class="btn btn-info" (click) = "editUser(userDt)">Edit</button> 
+            <button class="btn btn-danger" (click)="deleteUser(userDt._id)">Delete</button></td>
+      </tr>
+    </tbody>
+    
+  </table>
+
+
+<!-- 
+    {
+   "_id":"",
+   "name":"DSKJFHDSKL",
+   "email":"dsd@yopmail.com",
+   "phone":"95875985345",
+   "password":"",
+   "surname":"",
+   "address":"",
+   "education":"",
+   "country":"",
+   "state":"",
+   "experience":"",
+   "details":"",
+   "executiveId":"617f6a2cc7878d001676e216",
+   "is_Active":true
+}
+ -->
